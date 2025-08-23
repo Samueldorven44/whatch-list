@@ -1,0 +1,24 @@
+// Specific CSS for your home-page
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.movie {
+  text-align: center;
+  width: 200px; /* ou ajustable */
+}
+
+.image_movie {
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.movie-title {
+  margin-top: 8px;
+}

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="banner" style="background-image: url('<%= asset_path("walle.jpg") %>')">
+    <div class="banner-text">
+      <h2>WALL-E<span id="point">.</span></h2>
+      <p>Faites la connaissance de WALL•E (prononcez "Walli") : WALL•E est le dernier être sur Terre et s'avère être un... petit robot ! </p>
+      <button class="btn" href="">Learn more</button>
+    </div>
+  </div>
+
+  <h3>You may like</h3>
+    <div class="movies">
+    <% @movies.each do |movie| %>
+      <div class="movie">
+        <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
+        <p class="movie-title"><%= movie['title'] %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
