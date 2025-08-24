@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="content">
+    <% if @movie['poster_path'] %>
+      <%= image_tag "https://image.tmdb.org/t/p/w500#{@movie['poster_path']}", class:"image-description"%>
+    <% end %>
+    <div class="content-text">
+      <h1><%= @movie['title'] %></h1>
+      <p><%= @movie['overview'] %></p>
+    </div>
+  </div>
+</div>

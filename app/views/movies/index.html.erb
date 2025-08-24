@@ -8,11 +8,15 @@
   </div>
 
   <h3>You may like</h3>
-    <div class="movies">
-    <% @movies.each do |movie| %>
+  <div class="movies">
+    <% @movies.sample(5).each do |movie| %>
       <div class="movie">
-        <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
-        <p class="movie-title"><%= movie['title'] %></p>
+        <%= link_to movie_path(movie['id']) do %>
+          <div class="image_wrapper">
+            <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
+            <p class="movie-title"><%= movie['title'] %></p>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
