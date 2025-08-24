@@ -1,0 +1,12 @@
+<h1><%= @list.name %></h1>
+
+<div class="delete-list">
+    <%= link_to "Delete",
+        list_path(@list),
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+        class: "link-delete-list" %>
+  </div>
+
+<div class="btn-wrapper">
+  <%= link_to "Retour", lists_path, class: "btn-back" %>
+</div>

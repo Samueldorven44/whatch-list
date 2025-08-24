@@ -1,0 +1,11 @@
+<div class="new-container">
+  <div class="form">
+    <h2>Ajouter une nouvelle liste</h2>
+
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name %>
+      <%= f.button :submit, "Enregistrer", class: "btn" %>
+    <% end %>
+  </div>
+  <div class="btn-wrapper"><%= link_to "Retour", lists_path, class:"btn-back"%></div>
+</div>
