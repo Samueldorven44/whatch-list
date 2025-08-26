@@ -4,6 +4,16 @@
   <div class="cards">
     <% @lists.each do |list| %>
       <%= link_to list_path(list), class: "link" do %>
+        <article class="card">
+          <% if list.photo.attached? && list.photo.key.present? %>
+            <%= cl_image_tag list.photo.key,
+                  height: 180, width: 400, crop: :fill,
+                  alt: list.name, class: "image" %>
+          <% else %>
+            <div class="image placeholder"></div>
+          <% end %>
+
+
         <h3><%= list.name %></h3>
       <% end %>
     <% end %>
