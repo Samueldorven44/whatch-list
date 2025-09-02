@@ -10,3 +10,57 @@
   }
 }
 
+.movies-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.movie-card {
+  text-align: center;
+  width: 200px;
+}
+
+.movie-card-title {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  color: white;
+  z-index: 2;
+  text-align: start;
+  padding: 0 10px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.movie-card-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.movie-card-wrapper img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+}
+
+.movie-card-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  border-radius: 20px;
+  z-index: 1;
+}

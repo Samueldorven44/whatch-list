@@ -70,3 +70,4 @@ gem "sassc-rails"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'devise'
 gem "cloudinary"
+gem 'kaminari'

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="form">
+    <h2>Ajoute un bookmark</h2>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie, collection: Movie.order(:title), prompt: "Choisis un film" %>
+      <%= f.input :comment, label: "Votre avis" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Enregistrer", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div class="btn-wrapper"><%= link_to "Retour", lists_path, class:"btn-list"%></div>
+</div>

@@ -8,13 +8,13 @@
   </div>
 
   <h3>You may like</h3>
-  <div class="movies">
+  <div class="movies-cards">
     <% @movies.sample(5).each do |movie| %>
-      <div class="movie">
+      <div class="movie-card">
         <%= link_to movie_path(movie['id']) do %>
-          <div class="image_wrapper">
+          <div class="movie-card-wrapper">
             <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
-            <p class="movie-title"><%= movie['title'] %></p>
+            <p class="movie-card-title"><%= movie['title'] %></p>
           </div>
         <% end %>
       </div>
