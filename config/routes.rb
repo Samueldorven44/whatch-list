@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "movies#index"
+
+  get '/explorer/search', to: 'explorer#search', as: :explorer_search
+
   resources :movies
   resources :explorer, only: [:index]
   resources :lists do
