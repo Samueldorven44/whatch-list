@@ -35,8 +35,10 @@
 
       <div class="user-profile">
         <button class="username-btn">
-          <%= image_tag("photo_de_profile.jpeg", class: "image-profile") %>
-          Samuel D
+          <%= link_to dashboards_path do %>
+            <%= image_tag("photo_de_profile.jpeg", class: "image-profile") %>
+            Samuel D
+          <% end %>
         </button>
       </div>
     </div>
