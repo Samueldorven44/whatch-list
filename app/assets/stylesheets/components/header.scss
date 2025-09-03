@@ -22,6 +22,12 @@
   color: yellow;
 }
 
+.search-form {
+  .mb-3 {
+    margin-bottom: 0 !important;
+  }
+}
+
 .search-form-control {
   position: relative;
   flex: 1;
@@ -51,6 +57,14 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+#explorer-menu {
+  margin-left: 20px;
+}
+
+#list-menu {
+  margin-left: 20px;
 }
 
 .btn-form .fa-search {
@@ -85,4 +99,30 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .page, .first, .next, .prev, .last {
+    margin: 0px 10px;
+  }
+
+  .current {
+    background-color: white;
+    color: $dark-black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

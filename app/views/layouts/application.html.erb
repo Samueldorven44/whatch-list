@@ -18,14 +18,20 @@
         <h1>Watch List<span id="point">.</span></h1>
       <% end %>
 
-      <%= simple_form_for :search, method: :get do |f| %>
+      <%= simple_form_for :search, url: explorer_index_path, method: :get, html: { class: 'search-form' } do |f| %>
         <div class="search-form-control form-group">
-          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-          <button name="button" type="submit" class="btn-form">
+          <%= f.input :query, input_html: { class: 'form-control', placeholder: "Rechercher" }, label: false %>
+          <button type="submit" class="btn-form">
             <i class="fas fa-search"></i>
           </button>
         </div>
       <% end %>
+
+      <div class="menu">
+        <%= link_to "Home", movies_path %>
+        <%= link_to "Explorer", explorer_index_path, id:"explorer-menu" %>
+        <%= link_to "Lists", lists_path, id:"list-menu" %>
+      </div>
 
       <div class="user-profile">
         <button class="username-btn">

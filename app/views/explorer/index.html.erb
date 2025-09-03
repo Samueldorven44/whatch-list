@@ -1,5 +1,4 @@
-<h3>All movies</h3>
-  <div class="movies-cards">
+<div class="movies-cards">
     <% @movies.each do |movie| %>
       <div class="movie-card">
         <%= link_to movie_path(movie['id']) do %>
@@ -11,7 +10,4 @@
       </div>
     <% end %>
   </div>
-
-<div class="pagination">
-  <%= paginate @movies %>
-</div>
+  <%= paginate @movies, class: "pagination" %>
