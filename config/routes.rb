@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :movies
   resources :explorer, only: [:index]
+  resources :dashboards, only: [:index]
   resources :lists do
     resources :bookmarks, only: [:new, :create, :destroy]
   end
