@@ -3,7 +3,7 @@ require 'net/http'
 require 'json'
 
 module Tmdb
-  class KeywordSearchService
+  class MovieSearchService
     BASE_URL = 'https://api.themoviedb.org/3/search/movie'
 
     def initialize(title)
@@ -11,7 +11,7 @@ module Tmdb
       @bearer_token = ENV.fetch('TMDB_BEARER_TOKEN')
     end
 
-    def fetch_id
+    def fetch
       url = URI("#{BASE_URL}?query=#{URI.encode_www_form_component(@title)}&page=1")
 
       http = Net::HTTP.new(url.host, url.port)
@@ -24,14 +24,10 @@ module Tmdb
       response = http.request(request)
       result = JSON.parse(response.read_body)
 
-      puts JSON.pretty_generate(result)
-
-      return result['results'].first['id'] if result['results']&.any?
-
-      nil
+      result['results'] || []
     rescue => e
-      Rails.logger.error "Erreur recherche mot-clé TMDB : #{e.message}"
-      nil
+      Rails.logger.error "Erreur recherche de film TMDB : #{e.message}"
+      []
     end
   end
 end

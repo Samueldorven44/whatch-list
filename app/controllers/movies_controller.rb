@@ -1,11 +1,11 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Tmdb::TopRatedService.new(language: 'fr-FR').fetch
+    @movies = Tmdb::TopRatedService.new(language: 'en-US').fetch
   end
 
   def show
-    @movie = Tmdb::MovieDetailsService.new(id: params[:id], language: 'fr-FR').fetch
+    @movie = Tmdb::MovieDetailsService.new(id: params[:id], language: 'en-US').fetch
     redirect_to movies_path, alert: 'Film introuvable.' unless @movie
   end
 
