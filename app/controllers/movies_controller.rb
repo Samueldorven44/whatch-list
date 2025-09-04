@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Tmdb::TopRatedService.new(language: 'en-US').fetch
+    @movies = Tmdb::TopRatedMoviesService.new(language: 'en-US').fetch
   end
 
   def show
