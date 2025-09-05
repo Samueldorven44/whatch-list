@@ -1,0 +1,63 @@
+// btn login
+
+.btn-login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+// btn bookmark
+
+.btn-add-bookmark {
+  display: inline-block;
+  margin-top: 15px auto;
+  text-decoration: none;
+  color: white;
+  margin: 15px 0px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  background: #00d265;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-add-bookmark:hover {
+  background: #009749;
+  color: white;
+}
+
+.btn-bookmark {
+  float: right;
+  margin-left: 10px; /* espace entre les deux */
+}
+
+//btn delete list
+
+.actions-bar {
+  display: flex;
+  justify-content: flex-end; /* colle à droite */
+  gap: 10px; /* espace entre les deux */
+  margin-right: 15px;
+  margin-top: 30px;
+}
+
+.delete-list .link-delete-list {
+  display: inline-block;
+  margin-top: 15px auto;
+  text-decoration: none;
+  color: white;
+  margin: 15px 0px;
+  padding: 8px 24px;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+  font-weight: 500;
+}
+
+/* Style bouton delete */
+.link-delete-list {
+  background: #d61515;
+}
+.link-delete-list:hover {
+  background: #980707;
+}

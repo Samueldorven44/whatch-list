@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WhatchList</title>
+    <title>Labobine</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,7 +15,7 @@
   <body>
     <div class="header-container">
       <%= link_to movies_path do %>
-        <h1>Watch List<span id="point">.</span></h1>
+        <h1>Labobine<span id="point">.</span></h1>
       <% end %>
 
       <%= simple_form_for :search, url: explorer_index_path, method: :get, html: { class: 'search-form' } do |f| %>

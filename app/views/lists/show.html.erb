@@ -1,15 +1,17 @@
-<h1><%= @list.name %></h1>
+<div class="actions-bar">
+  <div class="delete-list">
+      <%= link_to "Delete list",
+          list_path(@list),
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+          class: "link-delete-list" %>
+    </div>
 
-<div class="delete-list">
-    <%= link_to "Delete",
-        list_path(@list),
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-        class: "link-delete-list" %>
+  <div class="btn-bookmark">
+    <%= link_to "Ajouter un bookmark", new_list_bookmark_path(@list), class: "btn-add-bookmark" %>
   </div>
-
-<div class="btn-bookmark">
-  <%= link_to "Ajouter un bookmark", new_list_bookmark_path(@list), class: "btn-add-bookmark" %>
 </div>
+
+<h1 class="list-name"><%= @list.name %></h1>
 
 <div class="btn-wrapper">
   <%= link_to "Retour", lists_path, class: "btn-back" %>
