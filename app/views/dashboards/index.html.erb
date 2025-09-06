@@ -1,1 +1,4 @@
-<h1>Hello <%= @user.firstname %></h1>
+<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+<h1><%= @user.firstname %> <%= @user.lastname %></h1>
+<h2><%= @user.age %> ans | <%= @user.phone_number %></h2>
+<p><%= @user.description %></p>

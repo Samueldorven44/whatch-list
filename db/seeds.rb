@@ -21,7 +21,9 @@ User.create!(
   lastname: "Dupont",
   email: "jean.dupont@example.com",
   password: "password123", # Devise gère le hash automatiquement via `has_secure_password`
-  password_confirmation: "password123"
+  password_confirmation: "password123",
+  age: 20,
+  phone_number: "06 35 67 89 10",
 )
 
 puts "✅ Seed user créé avec succès !"
