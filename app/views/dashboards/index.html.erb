@@ -1,4 +1,31 @@
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-<h1><%= @user.firstname %> <%= @user.lastname %></h1>
-<h2><%= @user.age %> ans | <%= @user.phone_number %></h2>
-<p><%= @user.description %></p>
+<div class="container-dashboard">
+
+  <div class="profile-user">
+    <div class="profile-left">
+      <h2><%= @user.firstname %> <%= @user.lastname %></h2>
+      <%= cl_image_tag @user.photo.key, class: "image-profile-dashboard" %>
+    </div>
+
+    <div class="profile-right">
+      <div class="profile-right-p1">
+        <p class="title-input-profile">Age</p>
+        <p><%= @user.age %> ans</p>
+        <p class="title-input-profile">City</p>
+        <p><%= @user.city %></p>
+        <p class="title-input-profile">Bio</p>
+        <p class="description-profile"><%= @user.description %></p>
+      </div>
+
+      <div class="profile-right-p2">
+        <p class="title-input-profile">Phone number</p>
+        <p><%= @user.phone_number %></p>
+        <p class="title-input-profile">Email</p>
+        <p><%= @user.email %></p>
+        <p class="title-input-profile">Favorite movies</p>
+        <p><%= @user.favorite_gender %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="logout-link"><%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "logout-button" %>
+</div>

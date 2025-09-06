@@ -34,12 +34,14 @@
       </div>
 
       <div class="user-profile">
-        <button class="username-btn">
-          <%= link_to dashboards_path do %>
-            <%= image_tag("photo_de_profile.jpeg", class: "image-profile") %>
-            Samuel D
+        <% if user_signed_in? %>
+          <%= link_to dashboards_path, class: "username-btn" do %>
+            <%= cl_image_tag current_user.photo.key, class: "image-profile" %>
+            <%= current_user.firstname %> <%= current_user.lastname[0].upcase %>
           <% end %>
-        </button>
+        <% else %>
+          <%= link_to "Connexion", new_user_session_path, class: "connexion-btn" %>
+        <% end %>
       </div>
     </div>
 

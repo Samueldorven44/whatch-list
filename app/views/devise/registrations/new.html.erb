@@ -6,10 +6,33 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :firstname %>
-        <%= f.input :lastname %>
-        <%= f.input :age %>
-        <%= f.input :phone_number %>
+        <div class="duo">
+          <%= f.input :firstname %>
+          <%= f.input :lastname %>
+        </div>
+        <div class="duo">
+          <%= f.input :age %>
+          <%= f.input :city %>
+        </div>
+        <div class="duo">
+          <%= f.input :favorite_gender, collection: [
+            "Action", "Adventure", "Animation", "Anthology Film", "Art House", "Avant-garde",
+            "Biography", "Black Comedy", "Body Horror", "Comedy", "Coming-of-Age", "Crime",
+            "Crime Thriller", "Cult Film", "Cyberpunk", "Dark Fantasy", "Disaster", "Documentary",
+            "Drama", "Dramedy", "Dystopian", "Erotic Thriller", "Experimental", "Family",
+            "Family Drama", "Fantasy", "Film Noir", "Found Footage", "Folk Horror", "Gothic Horror",
+            "Heist", "Historical", "Historical Drama", "Horror", "Legal Drama", "Martial Arts",
+            "Medical Drama", "Melodrama", "Monster", "Mockumentary", "Musical", "Mystery",
+            "Neo-noir", "Parody", "Political Drama", "Political Thriller", "Post-apocalyptic",
+            "Psychological Horror", "Psychological Thriller", "Romance", "Romantic Comedy",
+            "Road Movie", "Satire", "Science Fiction", "Screwball Comedy", "Silent Film", "Slapstick",
+            "Slasher", "Social Drama", "Space Opera", "Sports", "Steampunk", "Superhero",
+            "Supernatural", "Survival", "Sword and Sorcery", "Techno-Thriller", "Thriller",
+            "Time Travel", "Utopian", "Urban Fantasy", "War", "Western", "Whodunit", "Zombie"
+            ]
+          %>
+          <%= f.input :phone_number %>
+        </div>
         <%= f.input :description %>
         <%= f.input :email,
                     required: true,

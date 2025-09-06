@@ -61,3 +61,69 @@
 .link-delete-list:hover {
   background: #980707;
 }
+
+.logout-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-button {
+  border: none;
+  background-color: white;
+  border-radius: 50px;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: $dark-black;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  background-color: $light-black;
+  color: white;
+}
+
+.btn-form .fa-search {
+  color: white;
+  font-size: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.connexion-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.username-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem 0.5rem 1.8rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 2.5rem;
+}
+
+.image-profile {
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
