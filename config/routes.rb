@@ -11,10 +11,12 @@ Rails.application.routes.draw do
 
   get '/explorer/search', to: 'explorer#search', as: :explorer_search
 
+  post "/bookmarks/create", to: "bookmarks#create", as: :bookmarks_create
+
   resources :movies
   resources :explorer, only: [:index]
   resources :dashboards, only: [:index]
   resources :lists do
-    resources :bookmarks, only: [:new, :create, :destroy]
+    resources :bookmarks, only: [:new, :destroy]
   end
 end

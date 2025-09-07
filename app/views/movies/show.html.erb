@@ -6,6 +6,21 @@
     <div class="content-text">
       <h1><%= @movie['title'] %></h1>
       <p><%= @movie['overview'] %></p>
+        <%= simple_form_for @bookmark, url: bookmarks_create_path do |f| %>
+          <%= hidden_field_tag :tmdb_id, @movie["id"] %>
+          <%= hidden_field_tag :title, @movie["title"] %>
+          <%= hidden_field_tag :poster_path, @movie["poster_path"] %>
+          <%= hidden_field_tag :overview, @movie["overview"] %>
+
+          <%= f.input :list_id, collection: current_user.lists, label: "Choisis une liste" %>
+          <%= f.input :rating, label: "Note sur 5", input_html: { min: 1, max: 5, step: 1 }, as: :integer %>
+          <%= f.input :comment, label: "Ton commentaire sur ce film" %>
+
+          <%= f.submit "Ajouter à la liste", class: "btn" %>
+        <% end %>
+      </div>
     </div>
+
+
   </div>
 </div>

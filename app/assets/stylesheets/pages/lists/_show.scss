@@ -1,4 +1,38 @@
 .list-name {
   text-align: center;
-  margin-top: 15px;
+  margin: 30px 0px 50px 0px;
+}
+
+.image-bookmark{
+  width: 200px;
+  height: auto; /* ou une hauteur fixe selon ton design */
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.movie-card-bookmark {
+  display: flex;
+  margin: 20px 0px;
+}
+
+.content-bookmark{
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  text-align: justify;
+}
+
+.card-image-bookmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 550px) {
+  .movie-card-bookmark {
+    display: flex;
+    flex-direction: column;
+  }
 }

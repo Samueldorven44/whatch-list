@@ -28,6 +28,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    @bookmarks = @list.bookmarks.includes(:movie)
   end
 
   private
