@@ -26,3 +26,13 @@
   display: flex;
   gap: 20px
 }
+
+
+@media (max-width: 550px) {
+  .card-login {
+    padding: 50px;
+    background-color: #414141;
+    border-radius: 20px;
+    width: 35vh;
+  }
+}

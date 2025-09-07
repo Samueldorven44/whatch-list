@@ -13,6 +13,43 @@
   </head>
 
   <body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <%= link_to movies_path do %>
+          <h1 class= "nav-title">Labobine<span id="point">.</span></h1>
+        <% end %>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars" style="color: #ffffff;"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <%# if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to "Home", movies_path, class: "nav-link" %>
+                <%= link_to "Explorer", explorer_index_path, class: "nav-link" %>
+                <%= link_to "Lists", lists_path, class: "nav-link" %>
+                <% if user_signed_in? %>
+                  <%= link_to "Profile", dashboards_path, class: "nav-link" %>
+                <% else %>
+                  <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
+                <% end %>
+              </li>
+            <%# else %>
+              <!--li class="nav-item"-->
+                <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+              <!--/li-->
+            <%# end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
     <div class="header-container">
       <%= link_to movies_path do %>
         <h1>Labobine<span id="point">.</span></h1>

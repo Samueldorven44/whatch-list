@@ -1,3 +1,12 @@
+<%= simple_form_for :search, url: explorer_index_path, method: :get, html: { class: 'search-form-mobile' } do |f| %>
+  <div class="search-form-control form-group">
+    <%= f.input :query, input_html: { class: 'form-control', placeholder: "Rechercher" }, label: false %>
+    <button type="submit" class="btn-form">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+<% end %>
+
 <div class="movies-cards">
     <% @movies.each do |movie| %>
       <div class="movie-card">
