@@ -12,11 +12,11 @@
           <%= hidden_field_tag :poster_path, @movie["poster_path"] %>
           <%= hidden_field_tag :overview, @movie["overview"] %>
 
-          <%= f.input :list_id, collection: current_user.lists, label: "Choisis une liste" %>
-          <%= f.input :rating, label: "Note sur 5", input_html: { min: 1, max: 5, step: 1 }, as: :integer %>
-          <%= f.input :comment, label: "Ton commentaire sur ce film" %>
+          <%= f.input :list_id, collection: current_user.lists, label: "Choose your list" %>
+          <%= f.input :rating, label: "Rating on 5", input_html: { min: 1, max: 5, step: 1 }, as: :integer %>
+          <%= f.input :comment, label: "Your comment" %>
 
-          <%= f.submit "Ajouter à la liste", class: "btn" %>
+          <%= f.submit "Add to list", class: "btn" %>
         <% end %>
       </div>
     </div>

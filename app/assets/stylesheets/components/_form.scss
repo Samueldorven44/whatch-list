@@ -6,3 +6,9 @@
   width: 500px;
   gap: 1rem;
 }
+
+@media (max-width: 550px) {
+  .form {
+    width: 300px;
+  }
+}
