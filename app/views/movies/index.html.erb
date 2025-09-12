@@ -1,11 +1,12 @@
 <div class="container">
-  <div class="banner" style="background-image: url('<%= asset_path("walle.jpg") %>')">
-    <div class="banner-text">
-      <h2>WALL-E<span id="point">.</span></h2>
-      <p>Faites la connaissance de WALL•E (prononcez "Walli") : WALL•E est le dernier être sur Terre et s'avère être un... petit robot ! </p>
-      <button class="btn" href="">Learn more</button>
+  <%= link_to movie_path(@movie_banner), class: "banner-link" do %>
+    <div class="banner" style="background-image: url('<%= asset_path(@movie_banner.poster_url) %>')">
+      <div class="banner-text">
+        <h2><%= @movie_banner.name %><span id="point">.</span></h2>
+        <p><%= @movie_banner.mini_description %></p>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <h3>You may like</h3>
   <div class="movies-cards">

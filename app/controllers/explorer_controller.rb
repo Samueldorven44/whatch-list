@@ -1,4 +1,5 @@
 class ExplorerController < ApplicationController
+  
 
   def index
     query = params.dig(:search, :query)
