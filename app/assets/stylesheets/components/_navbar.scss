@@ -1,3 +1,9 @@
+.navbar {
+  position: relative;
+  background-color: transparent !important;
+  z-index: 9999
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +15,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-collapse {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 10px;
 }

@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:show]
+
   def index
     @movies = Tmdb::TopRatedMoviesService.new(language: 'en-US').fetch
     @movie_banner = Movie.all.sample

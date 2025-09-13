@@ -1,5 +1,8 @@
-<div class="container">
-  <%= link_to movie_path(@movie_banner), class: "banner-link" do %>
+<div class="container-home">
+
+  <!-- Desktop Banner -->
+
+  <%= link_to movie_path(@movie_banner), class: "banner-link desktop-banner" do %>
     <div class="banner" style="background-image: url('<%= asset_path(@movie_banner.poster_url) %>')">
       <div class="banner-text">
         <h2><%= @movie_banner.name %><span id="point">.</span></h2>
@@ -7,6 +10,27 @@
       </div>
     </div>
   <% end %>
+
+</div>
+
+  <!-- Mobile Banner -->
+
+  <div class="banner-link mobile-banner">
+    <% @movies.sample(1).each do |movie| %>
+      <%= link_to movie_path(movie['id']) do %>
+        <div class="banner-mobile-img" style="background-image: url('https://image.tmdb.org/t/p/w300<%= movie['poster_path'] %>');">
+          <div class="banner-text">
+            <h2><%= movie['title'] %><span id="point">.</span></h2>
+            <p><%= truncate(movie["overview"], length: 70) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+<div class="container-home">
 
   <h3>You may like</h3>
   <div class="movies-cards">
