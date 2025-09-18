@@ -7,16 +7,39 @@
   </div>
 <% end %>
 
-<div class="movies-cards">
-  <% @movies.each do |movie| %>
-    <div class="movie-card">
-      <%= link_to movie_path(movie['id']) do %>
-        <div class="movie-card-wrapper">
-          <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
-          <p class="movie-card-title"><%= movie['title'] %></p>
-        </div>
-      <% end %>
+<div class="movie-desktop">
+  <div class="movies-cards">
+    <% @movies.each do |movie| %>
+      <div class="movie-card">
+        <%= link_to movie_path(movie['id']) do %>
+          <div class="movie-card-wrapper">
+            <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
+            <p class="movie-card-title"><%= movie['title'] %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="carrousel-mobile">
+  <section class="splide" data-controller="splide" aria-label="Top Movies Carousel">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <% @movies.each do |movie| %>
+          <li class="splide__slide">
+            <div class="movie-card">
+              <%= link_to movie_path(movie['id']) do %>
+                <div class="movie-card-wrapper">
+                  <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
+                  <p class="movie-card-title"><%= movie['title'] %></p>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
-  <% end %>
+  </section>
 </div>
 <%= paginate @movies, class: "pagination" %>
