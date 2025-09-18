@@ -1,1 +1,18 @@
 // Specific CSS for your home-page
+.carrousel-mobile {
+  display: none;
+}
+
+.movie-desktop {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .carrousel-mobile {
+    display: block;
+  }
+
+  .movie-desktop {
+    display: none;
+  }
+}
