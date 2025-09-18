@@ -8,15 +8,15 @@
 <% end %>
 
 <div class="movies-cards">
-    <% @movies.each do |movie| %>
-      <div class="movie-card">
-        <%= link_to movie_path(movie['id']) do %>
-          <div class="movie-card-wrapper">
-            <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
-            <p class="movie-card-title"><%= movie['title'] %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <%= paginate @movies, class: "pagination" %>
+  <% @movies.each do |movie| %>
+    <div class="movie-card">
+      <%= link_to movie_path(movie['id']) do %>
+        <div class="movie-card-wrapper">
+          <%= image_tag("https://image.tmdb.org/t/p/w300#{movie['poster_path']}", alt: "#{movie['title']} poster", class: "image_movie") %>
+          <p class="movie-card-title"><%= movie['title'] %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= paginate @movies, class: "pagination" %>
