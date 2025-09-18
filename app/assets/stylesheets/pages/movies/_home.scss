@@ -3,20 +3,12 @@
   display: none;
 }
 
-.carrousel-mobile-explorer {
-  display: none;
-}
-
 .movie-desktop {
   display: block;
 }
 
 @media (max-width: 768px) {
   .carrousel-mobile {
-    display: block;
-  }
-
-  .carrousel-mobile-explorer {
     display: block;
   }
 

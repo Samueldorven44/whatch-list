@@ -1,0 +1,10 @@
+.carrousel-mobile-explorer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .carrousel-mobile-explorer {
+    display: block;
+    margin-top: 40px;
+  }
+}
