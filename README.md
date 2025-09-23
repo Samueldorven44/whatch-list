@@ -19,60 +19,27 @@ Labobine est une application Ruby on Rails qui permet de découvrir des films vi
 - **Services externes** : Intégration TMDb via classes `Tmdb::BaseService` et dérivées (TopRated, MovieDetails, MovieSearch, etc.) utilisant un token Bearer API.【F:app/services/tmdb/base_service.rb†L1-L26】【F:app/services/tmdb/top_rated_movies_service.rb†L1-L17】
 - **Pagination** : Kaminari pour paginer les résultats de recherche.【F:app/controllers/explorer_controller.rb†L4-L14】
 
-## Prérequis
-- Ruby 3.3.5 et Bundler
-- PostgreSQL 13+ et un utilisateur disposant des droits de création de base de données
-- Yarn ou npm (facultatif, l'application utilise importmap)
-- Compte TMDb avec token d'API v4 (Bearer)
-- Compte Cloudinary pour l'hébergement des images (facultatif pour un premier lancement, mais requis pour l'upload via Active Storage)
+## Pourquoi Labobine ?
+Labobine est née de la volonté d'offrir une alternative soignée aux listes de films éparpillées entre carnets, applications de notes et souvenirs. Le projet veut réunir en un même espace la découverte, la sélection et le partage de coups de cœur cinématographiques. L'expérience met l'accent sur la qualité des informations issues de TMDb, la personnalisation des listes et une navigation pensée pour les cinéphiles pressés comme pour les curieux qui explorent. La vision à long terme est de proposer un compagnon culturel qui suive vos envies au fil des saisons, vous inspire et vous incite à revoir vos classiques comme à dénicher de nouvelles pépites.
 
-## Installation
-1. **Cloner le dépôt**
-   ```bash
-   git clone <URL_DU_DEPOT>
-   cd whatch-list
-   ```
-2. **Installer les dépendances Ruby**
-   ```bash
-   bundle install
-   ```
-   (Vous pouvez également exécuter `bin/setup` pour automatiser l'installation, la préparation de la base et le nettoyage des caches.)【F:bin/setup†L1-L35】
-3. **Configurer la base de données**
-   ```bash
-   bin/rails db:create
-   bin/rails db:migrate
-   ```
-4. **(Optionnel) Charger les données de démonstration**
-   ```bash
-   bin/rails db:seed
-   ```
-   Le seed crée un utilisateur de test et plusieurs films classiques utilisés pour alimenter la bannière d'accueil.【F:db/seeds.rb†L1-L113】
+## Parcours utilisateur type
+1. **Explorer** — L'utilisateur arrive sur la page d'accueil et se laisse guider par les recommandations mises en avant, illustrées par des visuels riches et des extraits de synopsis. Une recherche rapide lui permet de trouver un titre précis ou de découvrir des films liés à un mot-clé.
+2. **Sélectionner** — En consultant la fiche détaillée d'un film, il lit le résumé, visionne les informations clés et décide de l'ajouter à l'une de ses listes, avec la possibilité d'y adjoindre sa propre note et un commentaire.
+3. **Organiser** — Il crée des listes thématiques (voyage, soirées doudou, chefs-d'œuvre oubliés, etc.) et les enrichit d'illustrations personnalisées. Chaque liste devient un espace soigné qu'il pourra partager ou garder pour lui.
+4. **Revenir** — Le tableau de bord centralise ses listes et son profil, l'invitant à revenir régulièrement pour continuer sa veille, préparer une projection ou simplement retrouver des idées de visionnage.
 
-## Configuration des variables d'environnement
-L'application s'appuie sur `dotenv-rails`. Créez un fichier `.env` à la racine avec les clés suivantes :
-```bash
-TMDB_BEARER_TOKEN=xxx             # Token API v4 TMDb
-CLOUDINARY_URL=cloudinary://...   # URL complète fournie par Cloudinary (alternative aux clés séparées)
-CLOUDINARY_CLOUD_NAME=xxx
-CLOUDINARY_API_KEY=xxx
-CLOUDINARY_API_SECRET=xxx
-```
-- `TMDB_BEARER_TOKEN` est requis pour toutes les requêtes à l'API TMDb.【F:app/services/tmdb/base_service.rb†L8-L25】
-- Les trois variables Cloudinary sont nécessaires si vous souhaitez permettre aux utilisateurs de téléverser une photo de profil ou d'illustrer leurs listes.【F:config/storage.yml†L10-L19】
-- En production, configurez également `WHATCH_LIST_DATABASE_PASSWORD` (utilisé dans `config/database.yml`).【F:config/database.yml†L13-L54】
+## Exemples d'usages
+- **Préparer une soirée cinéma entre amis** : créer une liste collaborative (fonctionnalité à venir) avec les propositions de chacun et voter pour la sélection finale.
+- **Garder trace d'un marathon de festival** : noter les films vus, ajouter ses impressions à chaud et conserver un historique fidèle de ses découvertes.
+- **Composer une bibliothèque éducative** : regrouper des films par thématique (histoire, écologie, animation), y associer des commentaires pédagogiques et partager la liste avec une classe ou un club.
+- **Planifier ses sorties en salle** : enregistrer les sorties à venir repérées grâce aux tendances TMDb et recevoir des rappels pour ne rien manquer.
 
-## Lancement de l'application
-- **Développement** :
-  ```bash
-  bin/rails server
-  ```
-  L'application est accessible sur http://localhost:3000. La configuration inclut `letter_opener` comme méthode de livraison d'emails pour consulter les messages sortants dans le navigateur.【F:config/environments/development.rb†L70-L77】
-- **Avec Docker** : un `Dockerfile` multi-étapes est fourni pour bâtir une image de production. Exemple :
-  ```bash
-  docker build -t labobine .
-  docker run --env-file .env -p 3000:3000 labobine
-  ```
-  (Assurez-vous de fournir les variables d'environnement décrites plus haut.)【F:Dockerfile†L1-L56】
+## Objectifs utilisateurs
+Labobine s'adresse aux amateurs de cinéma souhaitant :
+- Centraliser leurs films favoris dans des listes vivantes plutôt que statiques.
+- Ajouter une couche personnelle (notes, commentaires, visuels) à des données enrichies automatiquement.
+- S'appuyer sur une base fiable pour découvrir de nouveaux films sans devoir multiplier les services.
+- Retrouver rapidement leurs inspirations grâce à un tableau de bord simple et une interface responsive.
 
 ## Gestion des comptes et de l'accès
 - L'inscription et la connexion sont gérées par Devise (`/users/sign_up`, `/users/sign_in`).
@@ -97,6 +64,7 @@ Les principales tables et relations sont résumées ci-dessous :
 - Les contrôleurs Stimulus se trouvent dans `app/javascript/controllers/`; `splide_controller` initialise le carrousel Splide exposé via CDN dans le layout principal.【F:app/javascript/controllers/splide_controller.js†L1-L15】【F:app/views/layouts/application.html.erb†L1-L48】
 
 ## Aller plus loin
+- Consulter le [guide technique détaillé](docs/guide-technique.md) pour retrouver l'installation, la configuration et les commandes de lancement.
 - Ajouter des tests système et unitaires (RSpec, Capybara) pour sécuriser les parcours critiques.
 - Étendre l'exploration TMDb (recherche par mots-clés, genres) à l'aide des services déjà disponibles (`SearchMoviesByKeywordService`, `MoviesByKeywordService`).【F:app/services/tmdb/search_movies_by_keyword_service.rb†L1-L14】【F:app/services/tmdb/movies_by_keyword_service.rb†L1-L35】
 - Mettre en place un hébergement (Render, Fly.io, Heroku) en définissant les variables d'environnement nécessaires et en forçant SSL (déjà activé en production).【F:config/environments/production.rb†L1-L60】
